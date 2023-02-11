@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-4 offset-1">
+        <form>
+            <h4>Income/Expense</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="income"
+                    [(ngModel)]="incomeExpense.type">
+                <label class="form-check-label">
+                    Income
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="expense"
+                    [(ngModel)]="incomeExpense.type">
+                <label class="form-check-label">
+                    Expense
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" class="form-control" name="date" [(ngModel)]="incomeExpense.date">
+            </div>
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" class="form-control" name="amount" [(ngModel)]="incomeExpense.amount">
+            </div>
+            <div class="form-group">
+                <label>Remarks</label>
+                <input type="text" class="form-control" name="remarks" [(ngModel)]="incomeExpense.remarks">
+            </div>
+            <div class="pt-3">
+                <button class="btn btn-primary" (click)="saveIncomeExpense()">Save</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-6" style="height: 500px;display: block;overflow: auto;">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of incomeExpenseList">
+                    <td>{{item.type}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.remarks}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

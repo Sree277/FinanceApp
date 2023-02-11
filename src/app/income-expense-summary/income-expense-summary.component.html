@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-4 offset-4">
+        <form>
+            <h4>Income/Expense
+                Summary</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="summaryType" value="monthly"
+                    [(ngModel)]="summaryType" (change)="showTotal()">
+                <label class="form-check-label">
+                    Monthly
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="summaryType" value="yearly" [(ngModel)]="summaryType"
+                    (change)="showTotal()">
+                <label class="form-check-label">
+                    Yearly
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <select class="form-select" name="year" [(ngModel)]="year" (change)="showTotal()">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+            <div class="form-group" *ngIf="summaryType == 'monthly'">
+                <label>Month</label>
+                <select class="form-select" name="month" [(ngModel)]="month" (change)="showTotal()">
+                    <option value='1'>Janaury</option>
+                    <option value='2'>February</option>
+                    <option value='3'>March</option>
+                    <option value='4'>April</option>
+                    <option value='5'>May</option>
+                    <option value='6'>June</option>
+                    <option value='7'>July</option>
+                    <option value='8'>August</option>
+                    <option value='9'>September</option>
+                    <option value='10'>October</option>
+                    <option value='11'>November</option>
+                    <option value='12'>December</option>
+                </select>
+            </div>
+            <div class="form-group pt-3">
+                <label>Total Income :</label>
+                <span>
+                    {{totalIncome}}
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Total Expense :</label>
+                <span>
+                    {{totalExpense}}
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
